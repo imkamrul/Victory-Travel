@@ -1,0 +1,14 @@
+.tent-service span{
+font-size: 20px;
+padding-right: 30px;
+cursor: pointer;
+
+
+}
+.tent-service span:hover{
+    color: #004da0 ;
+    transform: scale(1.03);
+    text-shadow: #212529;
+
+
+}

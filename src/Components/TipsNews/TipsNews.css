@@ -1,0 +1,9 @@
+
+.news-explore {
+    cursor: pointer ;
+}
+.news-explore:hover {
+    color: #212529 !important;
+    transform: scale(1.01);
+    text-shadow: #212529;
+}

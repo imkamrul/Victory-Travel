@@ -1,0 +1,21 @@
+.footer-social-media span{
+    margin:  0 5px;
+    font-size: 35px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.footer-social-media span:hover{
+    color: #0080ff !important;
+    transform: scale(1.2);
+    text-shadow: #212529;
+}
+.footer-p-customize {
+
+ cursor: pointer;
+ font-size: 18px;
+}
+.footer-p-customize:hover {
+    color: blue #212529;
+transform: scale(1.02);
+
+}

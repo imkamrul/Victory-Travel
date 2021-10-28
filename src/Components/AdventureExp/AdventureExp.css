@@ -1,0 +1,16 @@
+.adventure-service{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+text-align: center;
+    height: 140px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.adventure-service:hover {
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.adventure-service :hover .ad-icon{
+    color: blue;
+  }
