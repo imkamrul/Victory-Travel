@@ -15,28 +15,28 @@ const AdventureExp = () => {
                         <Row className="g-4">
                             <Col xs={6} >
                                 <div className="adventure-service">
-                                    <p className="text-center "><i class="fas fa-dollar-sign fs-1 ad-icon"></i></p>
+                                    <p className="text-center "><i className="fas fa-dollar-sign fs-1 ad-icon"></i></p>
                                     <h4>Best Price Guarantee</h4>
                                 </div>
 
                             </Col>
                             <Col xs={6}>
                                 <div className="adventure-service">
-                                    <p className="text-center "><i class="fas fa-user-shield fs-1 ad-icon"></i></p>
+                                    <p className="text-center "><i className="fas fa-user-shield fs-1 ad-icon"></i></p>
                                     <h4>Safe and Secure</h4>
                                 </div>
 
                             </Col>
                             <Col xs={6}>
                                 <div className="adventure-service">
-                                    <p className="text-center "><i class="fas fa-route fs-1 ad-icon"></i></p>
+                                    <p className="text-center "><i className="fas fa-route fs-1 ad-icon"></i></p>
                                     <h4>Best Travel Agents</h4>
                                 </div>
 
                             </Col>
                             <Col xs={6}>
                                 <div className="adventure-service">
-                                    <p className="text-center "><i class="fab fa-guilded fs-1 ad-icon"></i></p>
+                                    <p className="text-center "><i className="fab fa-guilded fs-1 ad-icon"></i></p>
                                     <h4>Travel Guidelines</h4>
                                 </div>
 

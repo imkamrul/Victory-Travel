@@ -16,8 +16,8 @@ const Footer = () => {
                 <Row>
                     <Col xs={6} md={3} >
                         <h4 className="py-3">𝐕𝐢𝐜𝐭𝐨𝐫𝐲 𝐓𝐫𝐚𝐯𝐞𝐥</h4>
-                        <p className="footer-p-customize mb-1"> <i class="fas fa-envelope-square me-2"></i> info@gmail.com</p>
-                        <p className="footer-p-customize"><i class="fas fa-phone me-2"></i> 01234534656</p>
+                        <p className="footer-p-customize mb-1"> <i className="fas fa-envelope-square me-2"></i> info@gmail.com</p>
+                        <p className="footer-p-customize"><i className="fas fa-phone me-2"></i> 01234534656</p>
 
                     </Col>
                     <Col xs={6} md={3}>
@@ -43,7 +43,7 @@ const Footer = () => {
 
                 </Row>
                 <hr />
-                <p className="text-center pt-3"><i class="fas fa-copyright"></i> 2021 Victory Travel  | All Rights Reserved</p>
+                <p className="text-center pt-3"><i className="fas fa-copyright"></i> 2021 Victory Travel  | All Rights Reserved</p>
             </Container>
 
         </div>

@@ -25,7 +25,7 @@ const Home = () => {
             <AdventureExp></AdventureExp>
 
             <GetTouch></GetTouch>
-            <Footer></Footer>
+
 
         </div>
     );

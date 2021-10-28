@@ -20,7 +20,7 @@ const TipsNews = () => {
                                         <Card.Text className="mb-1">
                                             BLOG DETAIL Blog Detail Tips for Mountain Climbing Admin September 17, 2021 Tour Massa
                                         </Card.Text>
-                                        <p className=" fs-5 mb-0 news-explore"><i class="fas fa-arrow-right me-2"></i> Explore more <span className=" ps-1 "></span></p>
+                                        <p className=" fs-5 mb-0 news-explore"><i className="fas fa-arrow-right me-2"></i> Explore more <span className=" ps-1 "></span></p>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -32,7 +32,7 @@ const TipsNews = () => {
                                         <Card.Text className="mb-1">
                                             BLOG DETAIL Blog Detail The Best Photo Spot Rinjani Admin September 17, 2021 Spot
                                         </Card.Text>
-                                        <p className=" fs-5 news-explore mb-0"><i class="fas fa-arrow-right me-2"></i> Explore more <span className=" ps-1 "></span></p>
+                                        <p className=" fs-5 news-explore mb-0"><i className="fas fa-arrow-right me-2"></i> Explore more <span className=" ps-1 "></span></p>
                                     </Card.Body>
                                 </Card>
                             </Col>
