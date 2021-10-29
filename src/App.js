@@ -13,6 +13,7 @@ import Booking from './Components/Booking/Booking';
 import ManageAllBooking from './Components/ManageAllBooking/ManageAllBooking';
 import MyBookings from './Components/MyBookings/MyBookings';
 import Admins from './Components/Admins/Admins';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -27,9 +28,9 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/booking/:id">
+            <PrivateRoute path="/booking/:id">
               <Booking></Booking>
-            </Route>
+            </PrivateRoute>
             <Route path="/myBookings">
               <MyBookings></MyBookings>
             </Route>
