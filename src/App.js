@@ -5,9 +5,10 @@ import Home from './Components/Home/Home';
 import AuthProvider from './Context/AuthProvider';
 import { BrowserRouter, Switch, Route, } from "react-router-dom";
 import Header from './Components/Header/Header';
-import EventsAdd from './Components/EventsAdd/EventsAdd';
+
 import LogIn from './Components/LogIn/LogIn';
 import Footer from './Components/Footer/Footer';
+import AddPackage from './Components/AddPackage/AddPackage';
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/eventsAdd">
-              <EventsAdd></EventsAdd>
+            <Route path="/addPackage">
+              <AddPackage></AddPackage>
             </Route>
             <Route path="/login">
               <LogIn></LogIn>

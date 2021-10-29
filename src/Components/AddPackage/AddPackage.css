@@ -1,4 +1,4 @@
-.event-add-from form{
+.package-add-from form{
     display: flex;
     flex-direction: column;
     /* width: 40%; */
@@ -6,7 +6,7 @@
     align-items: center;
    margin-bottom: 10px;
 }
-.event-add-from form input{
+.package-add-from form input,textarea{
 
     width: 90%;
     padding: 5px 5px;

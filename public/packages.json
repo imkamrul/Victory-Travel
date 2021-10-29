@@ -1,0 +1,44 @@
+[
+    {
+        "duration": 3,
+        "price": 5400,
+        "event": "Saintmartin",
+        "description": "St. Martin's Island is a small island in the northeastern part of the Bay of Bengal, about 9 km south of the tip of the Cox's Bazar-Teknaf peninsula, and forming the southernmost part of Bangladesh. There is a small adjoining island that is separated at high tide, called Chera Dwip.",
+        "img": "https://i.ibb.co/0FWdvD6/Couple-Of-Tourists-With-Backpacks-on-mountain.jpg"
+    },
+    {
+        "duration": 4,
+        "price": 4500,
+        "event": "Sajek",
+        "description": "Sajek Valley (Bengali: সাজেক উপত্যকা) is one of the popular tourist spots in Bangladesh situated among the hills of the Kasalong range of mountains in Sajek union, Baghaichhari Upazila in Rangamati District.[3] The valley is 2,000 feet (610 m) above sea level.[4] Sajek valley is known as the Queen of Hills & Roof of Rangamati.",
+        "img": "https://i.ibb.co/09kSZyx/Woman-hand-holding-camera-and-standing-on-top-of-the-rock-in-nature-Travel-concept.jpg"
+    },
+    {
+        "duration": 4,
+        "price": 3000,
+        "event": "Sylet",
+        "description": "Sylhet is a city in eastern Bangladesh, on the Surma River. It’s known for its Sufi shrines, like the ornate tomb and mosque of 14th-century saint Hazrat Shah Jalal, now a major pilgrimage site near Dargah Gate. The tiny Museum of Rajas contains belongings of the local folk poet Hasan Raja. A 3-domed gateway stands at the 17th-century Shahi Eidgah, a huge open-air hilltop mosque built by Emperor Aurangzeb.",
+        "img": "https://i.ibb.co/ByMkbdk/Sylet.jpg"
+    },
+    {
+        "duration": 3,
+        "price": 2800,
+        "event": "Banderban",
+        "description": "Bandarban, is a district in South-Eastern Bangladesh, and a part of the Chittagong Division. It is one of the three hill districts of Bangladesh and a part of the Chittagong Hill Tracts, the others being Rangamati District and Khagrachhari District. Bandarban city is the headquarters of the Bandarban district.",
+        "img": "https://i.ibb.co/SXWhvyj/Tourist-from-mountain-top-sun-rays-man-wear-big-backpack-against-sun-light.jpg"
+    },
+    {
+        "duration": 2,
+        "price": 2500,
+        "event": "Chottrogram",
+        "description": "Chittagong is large port city on the southeastern coast of Bangladesh. The Ethnological Museum has exhibits about the many different ethnic tribes across the country. Zia Memorial Museum, inside the former Old Circuit House, displays items belonging to former president Ziaur Rahman, who was assassinated on the site in 1981. The landmark Chandanpura Mosque has many onion-shaped domes and brightly painted minarets. ",
+        "img": "https://i.ibb.co/w6VYyps/Tourist-from-mountain-top-sun-rays-man-wear-big-backpack-against-sun-light.jpg"
+    },
+    {
+        "duration": 5,
+        "price": 5800,
+        "event": "Sundarbans",
+        "description": "Sundarbans is a mangrove area in the delta formed by the confluence of the Ganges, Brahmaputra and Meghna Rivers in the Bay of Bengal. It spans from the Hooghly River in India's state of West Bengal to the Baleswar River in Bangladesh's division of Khulna. ",
+        "img": "https://i.ibb.co/ZS22BH8/sundorban.png"
+    }
+]

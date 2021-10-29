@@ -11,6 +11,9 @@ justify-content: center;
 
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.adventure-service :hover .ad-icon{
+/* .adventure-service :hover .ad-icon{
     color: blue;
-  }
+  } */
+  /* .ad-icon{
+      color: black !important;
+  } */
