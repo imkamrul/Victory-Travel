@@ -1,18 +1,24 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import './DisplayPackages.css'
 
 const DisplayPackages = () => {
     const [packages, setPackages] = useState({});
+    const history = useHistory();
+    const packageRegister = (id) => {
+
+        history.push(`/booking/${id}`);
+    }
     useEffect(() => {
         axios.get('http://localhost:5000/packages')
             .then(res => {
-                // console.log(res.data)
+
                 setPackages(res.data)
             })
     }, [])
-    console.log(packages);
+
     return (
         <div>
             <Container className="py-5">
@@ -43,7 +49,7 @@ const DisplayPackages = () => {
                                                     <i className="far fa-clock pe-2 text-warning"></i>
                                                     {pack.duration} day
                                                 </span>
-                                                <span>      <Button variant="dark" className="my-3">Book now</Button></span>
+                                                <span>      <Button variant="dark" className="my-3" onClick={() => { packageRegister(pack._id) }}>Book now</Button></span>
                                             </div>
 
                                         </Card.Text>
