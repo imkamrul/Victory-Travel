@@ -5,12 +5,13 @@ import './Login.css'
 import googleLogo from '../../img/google.png'
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import axios from 'axios';
 const LogIn = () => {
     const location = useLocation();
     const redirect_uri = location.state?.from || '/home'
     const history = useHistory();
     const [logInPage, setLogInPage] = useState(true);
-    const { handleNameChange, signInWithgoogle, setIsLoading, handlepasswordChnage, handleEmailChnage, processLogin, registerNewUser, setUserName, verifyEmail } = useAuth();
+    const { handleNameChange, signInWithgoogle, setIsLoading, handlepasswordChnage, handleEmailChnage, processLogin, registerNewUser, setUserName, verifyEmail, name, email } = useAuth();
     const pageToggle = (s) => {
         setLogInPage(s)
     }
@@ -23,6 +24,11 @@ const LogIn = () => {
                     .then(() => {
                         verifyEmail()
                             .then(result => {
+                                alert("page will be realod")
+                                const newUser = { name, email }
+                                axios.post("http://localhost:5000/AddUser", newUser)
+                                    .then(res => {
+                                    })
                                 history.push('/home')
                                 window.location.reload();
                             })
@@ -33,7 +39,13 @@ const LogIn = () => {
     const handleGoogleLogIn = () => {
         signInWithgoogle()
             .then((result) => {
+
+                const newUser = { name: result.user.displayName, email: result.user.email }
+                axios.post("http://localhost:5000/AddUser", newUser)
+                    .then(res => {
+                    })
                 history.push(redirect_uri)
+
 
             }).finally(() => setIsLoading(false))
             .catch((error) => {

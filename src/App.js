@@ -12,6 +12,7 @@ import AddPackage from './Components/AddPackage/AddPackage';
 import Booking from './Components/Booking/Booking';
 import ManageAllBooking from './Components/ManageAllBooking/ManageAllBooking';
 import MyBookings from './Components/MyBookings/MyBookings';
+import Admins from './Components/Admins/Admins';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route path="/addPackage">
               <AddPackage></AddPackage>
+            </Route>
+            <Route path="/admins">
+              <Admins></Admins>
             </Route>
             <Route path="/login">
               <LogIn></LogIn>

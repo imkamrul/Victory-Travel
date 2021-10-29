@@ -88,7 +88,7 @@ const useFirebase = () => {
     }, [])
 
     return {
-        user, signInWithgoogle, setIsLoading, logOut, handleNameChange, handleEmailChnage, handlepasswordReChnage, handlepasswordChnage, registerNewUser, password, setUserName, verifyEmail, setPassError, passError, processLogin, isLoading
+        user, signInWithgoogle, setIsLoading, logOut, handleNameChange, handleEmailChnage, handlepasswordReChnage, handlepasswordChnage, registerNewUser, password, setUserName, verifyEmail, setPassError, passError, processLogin, isLoading, name, email
 
     }
 }

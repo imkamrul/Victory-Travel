@@ -17,6 +17,7 @@ const Header = () => {
                         <Nav.Link as={Link} to="/addPackage">Add Package</Nav.Link>
                         <Nav.Link as={Link} to="/myBookings">My Bookings Bookings</Nav.Link>
                         <Nav.Link as={Link} to="/allBooking">Manage Bookings</Nav.Link>
+                        <Nav.Link as={Link} to="/admins">Admins</Nav.Link>
                         <span className=" text-light pt-2 px-2 fw-lighter ">{user.displayName}</span>
                         {user.email ? <Button variant="warning" onClick={logOut} className="m-1 text-white">Log Out</Button>
                             : <NavLink to="/login"><Button variant="outline-info mt-1">Log In</Button></NavLink>}
