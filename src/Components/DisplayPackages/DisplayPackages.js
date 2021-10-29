@@ -12,7 +12,7 @@ const DisplayPackages = () => {
         history.push(`/booking/${id}`);
     }
     useEffect(() => {
-        axios.get('http://localhost:5000/packages')
+        axios.get('https://intense-castle-18583.herokuapp.com/packages')
             .then(res => {
 
                 setPackages(res.data)

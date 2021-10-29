@@ -8,7 +8,7 @@ const AddPackage = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         // console.log(data)
-        axios.post('http://localhost:5000/packageADD', data)
+        axios.post('https://intense-castle-18583.herokuapp.com/packageADD', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Package added successfully");

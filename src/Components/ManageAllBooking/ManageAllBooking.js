@@ -10,7 +10,7 @@ const ManageAllBooking = () => {
 
     const handleStatusUpdate = id => {
         console.log(id)
-        axios.put(`http://localhost:5000/bookingStatusUpdate/${id}`)
+        axios.put(`https://intense-castle-18583.herokuapp.com/bookingStatusUpdate/${id}`)
             .then(res => {
                 if (res.data.modifiedCount) {
                     alert("process update successful");
@@ -29,7 +29,7 @@ const ManageAllBooking = () => {
         // console.log(id)
         const sure = window.confirm("are you sure to delete this ?");
         if (sure) {
-            axios.delete(`http://localhost:5000/bookingDelete/${id}`)
+            axios.delete(`https://intense-castle-18583.herokuapp.com/bookingDelete/${id}`)
                 .then(res => {
                     if (res.data.deletedCount) {
                         alert("deleted successful");
@@ -41,7 +41,7 @@ const ManageAllBooking = () => {
 
     }
     useEffect(() => {
-        axios.get('http://localhost:5000/allBooking')
+        axios.get('https://intense-castle-18583.herokuapp.com/allBooking')
             .then(res => {
 
                 setAllbooking(res.data)

@@ -26,7 +26,7 @@ const LogIn = () => {
                             .then(result => {
                                 alert("page will be realod")
                                 const newUser = { name, email }
-                                axios.post("http://localhost:5000/AddUser", newUser)
+                                axios.post("https://intense-castle-18583.herokuapp.com/AddUser", newUser)
                                     .then(res => {
                                     })
                                 history.push('/home')
@@ -41,7 +41,7 @@ const LogIn = () => {
             .then((result) => {
 
                 const newUser = { name: result.user.displayName, email: result.user.email }
-                axios.post("http://localhost:5000/AddUser", newUser)
+                axios.post("https://intense-castle-18583.herokuapp.com/AddUser", newUser)
                     .then(res => {
                     })
                 history.push(redirect_uri)

@@ -9,7 +9,7 @@ const MyBookings = () => {
         console.log(id)
         const sure = window.confirm("are you sure to delete this ?");
         if (sure) {
-            axios.delete(`http://localhost:5000/bookingDelete/${id}`)
+            axios.delete(`https://intense-castle-18583.herokuapp.com/bookingDelete/${id}`)
                 .then(res => {
                     if (res.data.deletedCount) {
                         alert("deleted successful");
@@ -20,7 +20,7 @@ const MyBookings = () => {
         }
     }
     useEffect(() => {
-        axios.get(`http://localhost:5000/myBookings?search=${email}`)
+        axios.get(`https://intense-castle-18583.herokuapp.com/myBookings?search=${email}`)
             .then(res => {
                 console.log(res.data);
                 setMyBooking(res.data)

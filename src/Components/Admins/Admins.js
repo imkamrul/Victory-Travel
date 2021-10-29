@@ -6,7 +6,7 @@ const Admins = () => {
     const [allAdmins, setAlladmins] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allUsers')
+        axios.get('https://intense-castle-18583.herokuapp.com/allUsers')
             .then(res => {
                 console.log(res)
                 setAlladmins(res.data)
@@ -18,7 +18,7 @@ const Admins = () => {
 
         const deleteSure = window.confirm("are you sure ")
         if (deleteSure) {
-            axios.delete(`http://localhost:5000/deleteUser/${id}`)
+            axios.delete(`https://intense-castle-18583.herokuapp.com/deleteUser/${id}`)
                 .then(res => {
                     if (res.data.deletedCount) {
                         alert("deleted successful");
