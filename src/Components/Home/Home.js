@@ -13,9 +13,9 @@ import TipsNews from '../TipsNews/TipsNews';
 
 const Home = () => {
 
-    const { test } = useAuth();
 
-    console.log(test)
+
+
     return (
         <div className="bg-light">
 

@@ -9,7 +9,7 @@ const ManageAllBooking = () => {
 
 
     const handleStatusUpdate = id => {
-        console.log(id)
+
         axios.put(`https://intense-castle-18583.herokuapp.com/bookingStatusUpdate/${id}`)
             .then(res => {
                 if (res.data.modifiedCount) {
@@ -17,7 +17,7 @@ const ManageAllBooking = () => {
                     for (const book of allBookings) {
                         if (book._id === id) {
                             book.status = "Approve"
-                            // console.log(book)
+
 
                         }
                     }
@@ -26,7 +26,7 @@ const ManageAllBooking = () => {
             })
     }
     const deleteBooking = id => {
-        // console.log(id)
+
         const sure = window.confirm("are you sure to delete this ?");
         if (sure) {
             axios.delete(`https://intense-castle-18583.herokuapp.com/bookingDelete/${id}`)

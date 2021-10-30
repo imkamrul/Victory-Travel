@@ -8,7 +8,7 @@ const Admins = () => {
     useEffect(() => {
         axios.get('https://intense-castle-18583.herokuapp.com/allUsers')
             .then(res => {
-                console.log(res)
+
                 setAlladmins(res.data)
             })
     }, [])

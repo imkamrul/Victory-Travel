@@ -7,7 +7,10 @@ const TipsNews = () => {
             <Container className="py-5">
                 <Row>
                     <Col>
-                        <h3 className="text-center">Tips & News Adventure</h3>
+
+                        <h1 className="text-center fw-bolder fs-2 py-3">
+                            Tips & News Adventure
+                        </h1>
 
                         <Row xs={1} md={2} className="g-4 pt-4">
 
@@ -18,7 +21,7 @@ const TipsNews = () => {
                                         <Card.Title>
                                             Tips for Mountain Climbing</Card.Title>
                                         <Card.Text className="mb-1">
-                                            BLOG DETAIL Blog Detail Tips for Mountain Climbing Admin September 17, 2021 Tour Massa
+                                            BLOG DETAIL Blog Detail Tips for Mountain Climbing .
                                         </Card.Text>
                                         <p className=" fs-5 mb-0 news-explore"><i className="fas fa-arrow-right me-2"></i> Explore more <span className=" ps-1 "></span></p>
                                     </Card.Body>
@@ -39,7 +42,7 @@ const TipsNews = () => {
                             <Col md={4}>
                                 <Row className="gx-1 pb-4">
                                     <Col md={6}>
-                                        <Image style={{ height: "120px" }} src="https://image.freepik.com/free-photo/man-traveling-alone-montenegro_23-2149040709.jpg" rounded fluid />
+                                        <Image style={{ height: "110px" }} src="https://image.freepik.com/free-photo/man-traveling-alone-montenegro_23-2149040709.jpg" rounded fluid />
 
                                     </Col>
                                     <Col md={6} className="ps-2">
@@ -51,7 +54,7 @@ const TipsNews = () => {
                                 </Row>
                                 <Row className="gx-1 pb-4">
                                     <Col md={6}>
-                                        <Image style={{ height: "120px" }} src="https://image.freepik.com/free-photo/woman-with-hat-sitting-chairs-beach-beautiful-tropical-beach-woman-relaxing-tropical-beach-koh-nangyuan-island_335224-1111.jpg" rounded fluid />
+                                        <Image style={{ height: "110px" }} src="https://image.freepik.com/free-photo/woman-with-hat-sitting-chairs-beach-beautiful-tropical-beach-woman-relaxing-tropical-beach-koh-nangyuan-island_335224-1111.jpg" rounded fluid />
 
                                     </Col>
                                     <Col md={6} className="ps-2">
@@ -63,7 +66,7 @@ const TipsNews = () => {
                                 </Row>
                                 <Row className="gx-1">
                                     <Col md={6}>
-                                        <Image style={{ height: "120px" }} src="https://image.freepik.com/free-photo/tourist-from-mountain-top-sun-rays-man-wear-big-backpack-against-sun-light_1150-9129.jpg" rounded fluid />
+                                        <Image style={{ height: "110px" }} src="https://image.freepik.com/free-photo/tourist-from-mountain-top-sun-rays-man-wear-big-backpack-against-sun-light_1150-9129.jpg" rounded fluid />
 
                                     </Col>
                                     <Col md={6} className="ps-2">

@@ -8,12 +8,14 @@ const PackageAdd = () => {
     const [selectedPack, setSelectedPack] = useState([]);
     const address = useRef();
 
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+
+    };
 
     useEffect(() => {
         axios.get(`https://intense-castle-18583.herokuapp.com/selectedPack/${id}`)
             .then(res => {
-                // console.log(res.data)
+
                 setSelectedPack(res.data)
             })
     }, [id])

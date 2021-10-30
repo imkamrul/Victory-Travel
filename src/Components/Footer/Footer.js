@@ -1,50 +1,64 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import './Footer.css'
 
 const Footer = () => {
-
-    const facebook = <FontAwesomeIcon icon={faFacebook} />
-    const instragram = <FontAwesomeIcon icon={faInstagram} />
-    const twitter = <FontAwesomeIcon icon={faTwitter} />
     return (
-        <div>
-            <Container className="pt-5 pb-3">
-                <Row>
-                    <Col xs={6} md={3} >
-                        <h4 className="py-3">𝐕𝐢𝐜𝐭𝐨𝐫𝐲 𝐓𝐫𝐚𝐯𝐞𝐥</h4>
-                        <p className="footer-p-customize mb-1"> <i className="fas fa-envelope-square me-2"></i> info@gmail.com</p>
-                        <p className="footer-p-customize"><i className="fas fa-phone me-2"></i> 01234534656</p>
+        <div id="contact">
+            <div className="bg-dark text-white py-5 text-muted">
+                <Container>
+                    <Row>
 
-                    </Col>
-                    <Col xs={6} md={3}>
-                        <h4>Learn more</h4>
-                        <p className="mb-1 footer-p-customize">About  Victory Travel</p>
-                        <p className="mb-1 footer-p-customize">Press Releases</p>
-                        <p className="mb-1 footer-p-customize">Environment</p>
-                        <p className="mb-1 footer-p-customize">Jobs</p>
-                        <p className="mb-1 footer-p-customize">Privacy Policy</p>
-                        <p className="mb-0 footer-p-customize">Contact Us</p>
-                    </Col>
-                    <Col xs={6} md={3}>
-                        <h4>Tickets & Booking</h4>
-                        <p className="mb-1 footer-p-customize">Victory Travel</p>
-                        <p className="mb-1 footer-p-customize">Tickets</p>
-                        <p className="mb-1 footer-p-customize">Season Passes</p>
-                        <p className="mb-0 footer-p-customize">Vacation Packages</p>
-                    </Col>
-                    <Col xs={6} md={3} >
-                        <h4>Social</h4>
-                        <p className="footer-social-media"> <span>{facebook}</span> <span>{instragram}</span> <span>{twitter}</span> </p>
-                    </Col>
+                        <Col md={3} >
+                            <h1 className="fs-3 pb-2">𝐕𝐢𝐜𝐭𝐨𝐫𝐲 𝐓𝐫𝐚𝐯𝐞𝐥</h1>
 
-                </Row>
-                <hr />
-                <p className="text-center pt-3"><i className="fas fa-copyright"></i> 2021 Victory Travel  | All Rights Reserved</p>
-            </Container>
+
+
+                            <p>
+                                <span className="footer-p-customize">Road:07 , Uttara, Dhaka</span> <br />
+                                <span className="footer-p-customize">Reservation: +1-202-555-0145</span> <br />
+                                <span className="footer-p-customize">Ticket Office: +1-202-555-0145</span> <br />
+
+                            </p>
+
+
+                        </Col>
+                        <Col md={3} >
+                            <h1 className="fs-3 pb-2">Tickets & Booking</h1>
+                            <p>
+                                <span className="footer-p-customize">Tickets</span> <br />
+                                <span className="footer-p-customize">Season Passes</span> <br />
+                                <span className="footer-p-customize">Vacation Packages</span> <br />
+                            </p>
+                        </Col>
+                        <Col md={3} >
+                            <h1 className="fs-3 pb-2">Support & Help</h1>
+                            <p>
+                                <span className="footer-p-customize">About Us</span> <br />
+                                <span className="footer-p-customize">Feedbacks</span> <br />
+                                <span className="footer-p-customize">Blogs</span> <br />
+                            </p>
+
+
+                        </Col>
+                        <Col md={3} >
+                            <h1 className="fs-3 pb-2">Follow With Us</h1>
+                            <p className="fs-2">
+                                <i className="fab fa-facebook pe-2"></i>
+                                <i className="fab fa-instagram-square pe-2"></i>
+                                <i className="fab fa-linkedin-in pe-2"></i>
+                                <i className="fab fa-twitter pe-2"></i>
+                                <i className="fab fa-youtube"></i> </p>
+
+
+                        </Col>
+
+
+                    </Row>
+                </Container>
+            </div>
+            <p className="text-center pt-3 fs-5">Copyrights © 2021 <span className="text-info"> 𝐕𝐢𝐜𝐭𝐨𝐫𝐲 𝐓𝐫𝐚𝐯𝐞𝐥</span>. All Rights Reserved</p>
+
 
         </div>
     );

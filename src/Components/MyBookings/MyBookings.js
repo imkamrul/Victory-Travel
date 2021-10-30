@@ -6,7 +6,7 @@ const MyBookings = () => {
     const email = "k17h02@gmail.com"
     const [myBooking, setMyBooking] = useState([]);
     const deleteMyBooking = id => {
-        console.log(id)
+
         const sure = window.confirm("are you sure to delete this ?");
         if (sure) {
             axios.delete(`https://intense-castle-18583.herokuapp.com/bookingDelete/${id}`)
@@ -22,7 +22,7 @@ const MyBookings = () => {
     useEffect(() => {
         axios.get(`https://intense-castle-18583.herokuapp.com/myBookings?search=${email}`)
             .then(res => {
-                console.log(res.data);
+
                 setMyBooking(res.data)
             })
 

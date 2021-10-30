@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card, Spinner, ListGroup } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import './DisplayPackages.css'
 
@@ -20,19 +20,20 @@ const DisplayPackages = () => {
     }, [])
 
     return (
-        <div>
+        <div id="packages">
             <Container className="py-5">
-                <Row>
+                < Row >
                     <Col >
-                        <h1 className="text-center fw-bolder fs-2 py-3">We promise, it won’t get boring.</h1>
-                        <h4 className="pt-3">Destination & Packages</h4>
-                        <p className="w-50">
-                            Destination of the average arrows onto the weekend. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus. What is the pull of the ball tomorrow?</p>
+                        <h1 className="text-center fw-bolder fs-2 pt-3">
+                            Destination & Packages
+                        </h1>
+                        <p className="text-center">  We promise, it won’t get boring.</p>
                     </Col>
                     <Row xs={1} md={3} className="g-4">
 
                         {
-                            packages.length ? packages.map(pack => <Col>
+                            packages.length ? packages.map(pack => <Col
+                                key={pack._id}>
                                 <Card className="custom-package-card-style" >
                                     <Card.Img variant="top" src={pack.img} />
                                     <Card.Body>
@@ -42,39 +43,40 @@ const DisplayPackages = () => {
                                         </Card.Title>
 
                                         <Card.Text>
-                                            <p>{pack.description.slice(0, 192)}</p>
-                                            <div className="text-center">
-                                                <span className="mx-3 fs-4"><i class="fas fa-dollar-sign text-warning"></i> {pack.price}</span>
-                                                <span className="mx-3 fs-4">
-                                                    <i className="far fa-clock pe-2 text-warning"></i>
-                                                    {pack.duration} day
-                                                </span>
-                                                <span>      <Button variant="dark" className="my-3" onClick={() => { packageRegister(pack._id) }}>Book now</Button></span>
-                                            </div>
+                                            {pack.description.slice(0, 192)}
+
 
                                         </Card.Text>
+                                        <ListGroup variant="flush" className="mb-0">
+                                            <ListGroup.Item className="text-center mb-0">
+                                                <span className=" fs-4 me-3"><i className="fas fa-dollar-sign text-warning me-2"></i> {pack.price}</span>
+                                                <span className="fs-4">
+                                                    <i className="far fa-clock me-2 text-warning"></i>
+                                                    {pack.duration} day
+                                                </span> <br />
+                                                <Button variant="dark" className="my-1" onClick={() => { packageRegister(pack._id) }}>Book now</Button></ListGroup.Item>
+
+
+                                        </ListGroup>
 
 
                                     </Card.Body>
                                 </Card>
-                            </Col>) : <p>no data</p>
+                            </Col>) :
+                                <div className="text-center">
+                                    <Spinner animation="border" variant="dark" />
+                                </div>
 
                         }
 
                     </Row>
-                </Row>
+                </Row >
 
-            </Container>
+            </Container >
         </div >
     );
 };
 
 export default DisplayPackages;
 
-
-//    <Card.Title className="d-flex justify-content-between"> <span className="fs-4 fw-bolder">{pack.event}</span>   <span className="pt-1"><i class="fas fa-dollar-sign text-warning"></i> {pack.price} tk</span> <span
-//    className="pt-1">
-//    <i className="far fa-clock pe-2 text-warning"></i>
-//    {pack.duration} day
-// </span></Card.Title>
 

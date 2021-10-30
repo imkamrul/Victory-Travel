@@ -15,21 +15,21 @@ const Booking = () => {
         data.status = "pending";
         data.img = selectedPack.img;
 
-        console.log(data)
+
         axios.post('https://intense-castle-18583.herokuapp.com/packageRegister', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Registration Success")
 
                 }
-                // console.log(res);
+
             })
     }
 
     useEffect(() => {
         axios.get(`https://intense-castle-18583.herokuapp.com/selectedPack/${id}`)
             .then(res => {
-                // console.log(res.data)
+
                 setSelectedPack(res.data)
             })
     }, [id])

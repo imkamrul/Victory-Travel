@@ -21,7 +21,7 @@ const GetTouch = () => {
                                         aria-label="Recipient's username"
                                         aria-describedby="basic-addon2"
                                     />
-                                    <Button variant="dark">SubsCribe Now</Button>
+                                    <Button variant="dark">Subscribe</Button>
                                 </InputGroup></Col>
                         </div>
                     </Col>
