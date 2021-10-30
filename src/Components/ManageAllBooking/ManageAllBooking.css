@@ -9,4 +9,11 @@
     padding: 10px 0;
    margin-bottom: 20px;
     
+}.delete-text-customize{
+    cursor: pointer;
+
+}.delete-text-customize:hover{
+    
+    border-bottom: 1px solid red;
+    
 }

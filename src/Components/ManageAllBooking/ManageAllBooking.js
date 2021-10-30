@@ -1,30 +1,46 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, Button } from 'react-bootstrap';
+import { Col, Container, Row, Button, Card, ListGroup, Modal } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 import './ManageAllBooking.css'
+import { useForm } from "react-hook-form";
 
 const ManageAllBooking = () => {
+    const { user } = useAuth();
     const [allBookings, setAllbooking] = useState([]);
+    const [bookingUpdate, setBookingUpdate] = useState([]);
+    const [uptadeModal, setUptadeModal] = useState(false);
 
+    const closeUpdateModal = () => setUptadeModal(false);
+    const showUpdateModal = () => setUptadeModal(true);
+    const handleUpate = (data) => {
+        console.log(data)
+        setBookingUpdate(data)
 
-
-    const handleStatusUpdate = id => {
-
-        axios.put(`https://intense-castle-18583.herokuapp.com/bookingStatusUpdate/${id}`)
-            .then(res => {
-                if (res.data.modifiedCount) {
-                    alert("process update successful");
-                    for (const book of allBookings) {
-                        if (book._id === id) {
-                            book.status = "Approve"
-
-
-                        }
-                    }
-
-                }
-            })
+        showUpdateModal();
     }
+    const { register, handleSubmit, } = useForm();
+    const handleStatusUpdate = data => {
+
+        const id = bookingUpdate._id;
+
+        axios.put(`https://intense-castle-18583.herokuapp.com/bookingStatusUpdate/${id}`, data)
+            // axios.put(`http://localhost:5000/bookingStatusUpdate/${id}`, data)
+            .then(res => {
+                console.log(res)
+                if (res.data.modifiedCount) {
+                    closeUpdateModal()
+                    axios.get('https://intense-castle-18583.herokuapp.com/allBooking')
+                        .then(res => {
+
+                            setAllbooking(res.data)
+                            alert("Status  updated successful");
+                        })
+                }
+
+            })
+    };
+
     const deleteBooking = id => {
 
         const sure = window.confirm("are you sure to delete this ?");
@@ -50,28 +66,63 @@ const ManageAllBooking = () => {
     return (
         <div>
             <Container className="py-5">
-                <Row className="heading">
-                    <Col md={2} xs={4}><h3 className="mb-0">Name</h3></Col>
-                    <Col md={2} xs={4}><h3 className="mb-0">Email</h3></Col>
-                    <Col md={4} xs={4}><h3 className="mb-0">Location</h3></Col>
-                    <Col md={2} xs={8}><h3 className="mb-0">Status</h3></Col>
-                    <Col md={2} xs={4}><h3 className="mb-0 text-center">Delete</h3></Col>
+                <h1 className="text-center py-2"> All booking list</h1>
+                <Row xs={1} md={3} className="g-4">
+                    {allBookings?.map(booking => <Col
+                        key={booking._id}>
+                        <Card>
+                            <Card.Img variant="top" src={booking.img} />
+                            <Card.Body>
+                                <Card.Title>{booking.event}</Card.Title>
+                                <ListGroup variant="flush">
+                                    <ListGroup.Item>Name :{booking.name}</ListGroup.Item>
+                                    <ListGroup.Item>Email :{booking.email}</ListGroup.Item>
+                                    <ListGroup.Item>Price :{booking.price} $</ListGroup.Item>
+                                    <ListGroup.Item>Mobile :{booking.mobile} </ListGroup.Item>
+                                    <ListGroup.Item>Address :{booking.address} </ListGroup.Item>
+                                    <ListGroup.Item>Status :{booking.status}  <Button variant="outline-dark" className=" ms-3" onClick={() => handleUpate(booking)}>Update</Button></ListGroup.Item>
+                                    <ListGroup.Item>  <h4 className="mb-0 mt-2 text-center "> <span className="delete-text-customize" onClick={() => { deleteBooking(booking._id) }}>Delete this booking <i className="fas fa-trash text-danger "  ></i></span></h4> </ListGroup.Item>
 
+                                </ListGroup>
+
+                            </Card.Body>
+                        </Card>
+                    </Col>)
+
+                    }
+                    <Modal show={uptadeModal} onHide={closeUpdateModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Hello {user.displayName}</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <form onSubmit={handleSubmit(handleStatusUpdate)}>
+                                <h2 className="fs-3 pb-3">Event : {bookingUpdate.event}</h2>
+                                <label className="me-3 fs-5 pb-3">Status : </label>
+
+
+
+                                <select {...register("Status")} className="p-1 fs-5">
+                                    <option value="pending">Pending</option>
+                                    <option value="processing">processing</option>
+                                    <option value="approve">Approve</option>
+                                </select>
+
+                                <Button variant="primary" type="submit" style={{ padding: "5px", marginLeft: "20px" }}>
+                                    Save Changes
+                                </Button>
+
+                            </form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={closeUpdateModal}>
+                                Close
+                            </Button>
+
+                        </Modal.Footer>
+                    </Modal>
                 </Row>
-                {
-                    allBookings?.map(booking => <Row
-                        key={booking._id}
-                        className="user-booking-detail">
-                        <Col md={1} xs={4}><h4 className="mb-0">{booking.name}</h4></Col>
-                        <Col md={3} xs={4}><h4 className="mb-0 ms-3">{booking.email}</h4></Col>
-                        <Col md={3} xs={4}><h4 className="mb-0">{booking.event}</h4></Col>
-                        <Col md={3} xs={8}><h4 className="mb-0">{booking.status} <Button variant="secondary" onClick={() => handleStatusUpdate(booking._id)}>Update</Button></h4></Col>
-                        <Col md={2} xs={4}><h4 className="mb-0 text-center"><i className="fas fa-trash text-danger " onClick={() => { deleteBooking(booking._id) }} ></i></h4></Col>
-
-                    </Row>)
-
-                }
             </Container>
+
         </div>
     );
 };
