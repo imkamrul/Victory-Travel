@@ -47,11 +47,11 @@ const Admins = () => {
                             allAdmins?.map(admin => <Row
                                 key={admin._id}
                                 className="user-booking-detail">
-                                <Col md={4} xs={4}><h4 className="mb-0">{admin.name}</h4></Col>
-                                <Col md={5} xs={4}><h4 className="mb-0 ms-3">{admin.email}</h4></Col>
+                                <Col md={4} ><h4 className="mb-0">{admin.name}</h4></Col>
+                                <Col md={5} ><h4 className="mb-0">{admin.email}</h4></Col>
 
 
-                                <Col md={3} xs={4}><h4 className="mb-0 text-center"><i className="fas fa-trash text-danger " onClick={showDeleteModal}  ></i></h4></Col>
+                                <Col md={3} ><h4 className="mb-0 text-center"><i className="fas fa-trash text-danger " onClick={showDeleteModal}  ></i></h4></Col>
                                 <Modal
                                     show={deleteUserModal}
                                     onHide={closeDeleteModal}
