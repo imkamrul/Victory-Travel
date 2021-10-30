@@ -1,25 +1,26 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row, Button, Spinner, ListGroup } from 'react-bootstrap';
+import { Card, Col, Container, Row, Button, Spinner, ListGroup, Modal } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 
 const MyBookings = () => {
     const { user } = useAuth();
     const email = user.email;
     const [myBooking, setMyBooking] = useState([]);
-    const deleteMyBooking = id => {
+    const [deletePackageModal, setDeletePackageModal] = useState(false);
 
-        const sure = window.confirm("are you sure to delete this ?");
-        if (sure) {
-            axios.delete(`https://intense-castle-18583.herokuapp.com/bookingDelete/${id}`)
-                .then(res => {
-                    if (res.data.deletedCount) {
-                        alert("deleted successful");
-                        const updateMyBooking = myBooking.filter(booking => booking._id !== id);
-                        setMyBooking(updateMyBooking)
-                    }
-                })
-        }
+    const closePackageModal = () => setDeletePackageModal(false);
+    const showPackageModal = () => setDeletePackageModal(true);
+    const deleteMyBooking = id => {
+        closePackageModal()
+        axios.delete(`https://intense-castle-18583.herokuapp.com/bookingDelete/${id}`)
+            .then(res => {
+                if (res.data.deletedCount) {
+                    alert("deleted successful");
+                    const updateMyBooking = myBooking.filter(booking => booking._id !== id);
+                    setMyBooking(updateMyBooking)
+                }
+            })
     }
     useEffect(() => {
         axios.get(`https://intense-castle-18583.herokuapp.com/myBookings?search=${email}`)
@@ -55,7 +56,7 @@ const MyBookings = () => {
                                             </ListGroup.Item>
 
                                             <ListGroup.Item>Price: {booking.price} <i className="fas fa-dollar-sign text-warning"></i>  <br /> Status: {booking.status}</ListGroup.Item>
-                                            <ListGroup.Item><span className=""><Button variant="dark" className="my-1" onClick={() => { deleteMyBooking(booking._id) }}>Cancel It</Button></span></ListGroup.Item>
+                                            <ListGroup.Item><span className=""><Button variant="dark" className="my-1" onClick={showPackageModal}>Cancel It</Button></span></ListGroup.Item>
 
 
                                         </ListGroup>
@@ -63,6 +64,25 @@ const MyBookings = () => {
 
                                     </Card.Body>
                                 </Card>
+                                <Modal
+                                    show={deletePackageModal}
+                                    onHide={closePackageModal}
+                                    backdrop="static"
+                                    keyboard={false}
+                                >
+                                    <Modal.Header closeButton>
+                                        <Modal.Title className="text-warning">Warning</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        Deleting this package. Are you sure?
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={closePackageModal}>
+                                            Close
+                                        </Button>
+                                        <Button variant="danger" onClick={() => { deleteMyBooking(booking._id) }}  >Delete</Button>
+                                    </Modal.Footer>
+                                </Modal>
                             </Col>)
 
                         }

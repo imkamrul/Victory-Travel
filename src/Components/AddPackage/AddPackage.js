@@ -36,31 +36,17 @@ const AddPackage = () => {
         <div>
             <Container className="py-5">
                 <h4 className="text-center">Add A Event</h4>
-
                 <Row className="d-flex justify-content-center">
                     <Col md={5} className="">
-
                         <Row className="bg-white">
                             <Col className="package-add-from">
                                 <form onSubmit={handleSubmit(onSubmit)}>
-
-
-
-
-
-
                                     <input placeholder="Events Name" type="text" {...register("event", { required: true })} />
                                     <input placeholder="Price" type="number"  {...register("price", { required: true })} />
                                     <input placeholder="IMG Url Only" type="text" {...register("img", { required: true })} />
                                     <input placeholder="Days" type="number" {...register("duration", { required: true })} />
                                     <textarea placeholder="Description" type="text" {...register("description", { required: true })} />
-
-
-
-
-
                                     <input className="btn btn-primary" type="submit" value="Add Package" />
-
                                 </form>
 
                             </Col>
