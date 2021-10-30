@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import { Card, Col, Container, Row, Button, Spinner, ListGroup } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
 const MyBookings = () => {
-    const email = "k17h02@gmail.com"
+    const { user } = useAuth();
+    const email = user.email;
     const [myBooking, setMyBooking] = useState([]);
     const deleteMyBooking = id => {
 
@@ -26,7 +28,8 @@ const MyBookings = () => {
                 setMyBooking(res.data)
             })
 
-    }, [])
+    }, [email])
+    console.log(myBooking)
     return (
         <div>
             <Container className="py-5">
@@ -34,27 +37,34 @@ const MyBookings = () => {
                     <Col>
                         <h4 className="text-center">My Bookings list</h4>
                     </Col>
-                    <Row xs={1} md={4} className="g-4">
+                    <Row className="g-4">
 
                         {
-                            myBooking?.map(booking => <Col
+                            myBooking?.map(booking => <Col xs={12} md={4}
                                 key={booking._id}
                             >
-                                <Card className="">
+                                <Card className="custom-shadow-all">
                                     <Card.Img variant="top" src={booking.img} />
                                     <Card.Body>
                                         <Card.Title>{booking.event}</Card.Title>
-                                        <Card.Text>
-                                            <p>Booking Status: {booking.status}</p>
-                                        </Card.Text>
-                                        <div className="text-center">
-                                            <span className="mx-3 fs-4"><i class="fas fa-dollar-sign text-warning"></i> {booking.price}</span>
+                                        <Card.Header>Name: {booking.name}</Card.Header>
+                                        <ListGroup variant="flush">
+                                            <ListGroup.Item>
+                                                Mobile : {booking.mobile} <br />
+                                                Address: {booking.address}
+                                            </ListGroup.Item>
 
-                                            <span>      <Button variant="dark" className="my-3" onClick={() => { deleteMyBooking(booking._id) }}>Cancel It</Button></span>
-                                        </div>
+                                            <ListGroup.Item>Price: {booking.price} <i className="fas fa-dollar-sign text-warning"></i>  <br /> Status: {booking.status}</ListGroup.Item>
+                                            <ListGroup.Item><span className=""><Button variant="dark" className="my-1" onClick={() => { deleteMyBooking(booking._id) }}>Cancel It</Button></span></ListGroup.Item>
+
+
+                                        </ListGroup>
+
+
                                     </Card.Body>
                                 </Card>
                             </Col>)
+
                         }
 
                     </Row>

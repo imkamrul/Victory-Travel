@@ -18,6 +18,9 @@ const Header = () => {
                         {user.email &&
                             <Nav.Link as={Link} to="/myBookings" className="fs-4 pt-2">My Bookings</Nav.Link>}
 
+
+                        <Nav.Link className="fs-4 pt-2" as={HashLink} to="/home#packages">Packages</Nav.Link>
+                        <Nav.Link className="fs-4 pt-2" as={HashLink} to="#contact">Contact</Nav.Link>
                         {user.email && <NavDropdown title="More" id="basic-nav-dropdown" className=" fs-4">
                             <NavDropdown.Item as={Link} to="/admins">ALl Users</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/addPackage">Add Package</NavDropdown.Item>
@@ -29,8 +32,6 @@ const Header = () => {
                         </NavDropdown>
 
                         }
-                        <Nav.Link className="fs-4 pt-2" as={HashLink} to="/home#packages">Packages</Nav.Link>
-                        <Nav.Link className="fs-4 pt-2" as={HashLink} to="#contact">Contact</Nav.Link>
 
                         <span className=" text-light pt-3 px-2 fw-lighter ">{user.displayName}</span>
                         {user.email ? <Button variant="warning" onClick={logOut} className="m-1 text-white">Log Out</Button>

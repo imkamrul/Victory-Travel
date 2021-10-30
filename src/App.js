@@ -14,6 +14,8 @@ import ManageAllBooking from './Components/ManageAllBooking/ManageAllBooking';
 import MyBookings from './Components/MyBookings/MyBookings';
 import Admins from './Components/Admins/Admins';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import PageNOtFound from './Components/PageNotFound/PageNOtFound';
+
 
 function App() {
   return (
@@ -30,21 +32,25 @@ function App() {
             </Route>
             <PrivateRoute path="/booking/:id">
               <Booking></Booking>
+
             </PrivateRoute>
-            <Route path="/myBookings">
+            <PrivateRoute path="/myBookings">
               <MyBookings></MyBookings>
-            </Route>
-            <Route path="/allBooking">
+            </PrivateRoute>
+            <PrivateRoute path="/allBooking">
               <ManageAllBooking></ManageAllBooking>
-            </Route>
-            <Route path="/addPackage">
+            </PrivateRoute>
+            <PrivateRoute path="/addPackage">
               <AddPackage></AddPackage>
-            </Route>
-            <Route path="/admins">
+            </PrivateRoute>
+            <PrivateRoute path="/admins">
               <Admins></Admins>
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
               <LogIn></LogIn>
+            </Route>
+            <Route path="*">
+              <PageNOtFound></PageNOtFound>
             </Route>
           </Switch>
           <Footer></Footer>

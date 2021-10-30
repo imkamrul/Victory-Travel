@@ -24,13 +24,14 @@ const LogIn = () => {
                     .then(() => {
                         verifyEmail()
                             .then(result => {
-                                alert("page will be realod")
+
                                 const newUser = { name, email }
-                                axios.post("https://intense-castle-18583.herokuapp.com/AddUser", newUser)
+                                axios.post("https://intense-castle-18583.herokuapp.com/registerUser", newUser)
                                     .then(res => {
+                                        history.push(redirect_uri)
+                                        window.location.reload();
                                     })
-                                history.push('/home')
-                                window.location.reload();
+
                             })
                     }).catch((error) => {
                     });
@@ -43,8 +44,9 @@ const LogIn = () => {
                 const newUser = { name: result.user.displayName, email: result.user.email }
                 axios.post("https://intense-castle-18583.herokuapp.com/AddUser", newUser)
                     .then(res => {
+                        history.push(redirect_uri)
                     })
-                history.push(redirect_uri)
+
 
 
             }).finally(() => setIsLoading(false))
@@ -68,14 +70,12 @@ const LogIn = () => {
         <div className="bg-light">
             <Container className="py-5">
                 <Row className="d-flex justify-content-center">
-                    <Col md={8} className="bg-white">
+                    <Col md={6} className="bg-white">
                         <Row className="pb-4 custom-log-in-shadow">
-                            <Col md={4} className="p-5 d-flex justify-content-center ">
 
-                                <Image src={login} roundedCircle fluid className="login-img-shadow  " />
+                            <Col md={12} className="pt-5 input-email-pass">
+                                <Image src={login} roundedCircle fluid className="login-img-shadow  mb-4 " />
 
-                            </Col>
-                            <Col md={8} className="pt-5 input-email-pass">
                                 <h4 className="text-center pb-3">{logInPage ? "User Login" : "Create a account"}</h4>
                                 {
                                     !logInPage && <InputGroup className="mb-3 w-75" >
@@ -86,6 +86,7 @@ const LogIn = () => {
                                             placeholder="Name"
                                             aria-label="Username"
                                             aria-describedby="basic-addon1"
+
                                         />
                                     </InputGroup>
                                 }
@@ -97,6 +98,7 @@ const LogIn = () => {
                                         placeholder="email"
                                         aria-label="Username"
                                         aria-describedby="basic-addon1"
+
                                     />
                                 </InputGroup>
                                 <InputGroup className="mb-3 w-75" >
