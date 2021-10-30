@@ -10,8 +10,7 @@ const useFirebase = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passError, setPassError] = useState('');
-    const [error, setError] = useState(' ');
-    const [rePassword, setRePassword] = useState('');
+
     const [isLoading, setIsLoading] = useState(true);
     // name feild 
     const handleNameChange = e => {
@@ -20,23 +19,18 @@ const useFirebase = () => {
     }
     // email feild 
     const handleEmailChnage = e => {
-        setError(" ");
+
         setEmail(e.target.value)
 
     }
     // password feild 
     const handlepasswordChnage = e => {
-        setError(" ");
+
         setPassError(" ")
         setPassword(e.target.value);
 
     }
-    // retype password feild 
-    const handlepasswordReChnage = e => {
-        setPassError(" ")
-        setRePassword(e.target.value);
 
-    }
     //  new register handle 
     const registerNewUser = (e) => {
         e.preventDefault();
@@ -52,7 +46,7 @@ const useFirebase = () => {
     }
     // email pass log in 
     const processLogin = (e) => {
-        setError(" ");
+
         setIsLoading(true)
 
         return signInWithEmailAndPassword(auth, email, password)
@@ -88,7 +82,7 @@ const useFirebase = () => {
     }, [])
 
     return {
-        user, signInWithgoogle, setIsLoading, logOut, handleNameChange, handleEmailChnage, handlepasswordReChnage, handlepasswordChnage, registerNewUser, password, setUserName, verifyEmail, setPassError, passError, processLogin, isLoading, name, email
+        user, signInWithgoogle, setIsLoading, logOut, handleNameChange, handleEmailChnage, handlepasswordChnage, registerNewUser, password, setUserName, verifyEmail, setPassError, passError, processLogin, isLoading, name, email
 
     }
 }

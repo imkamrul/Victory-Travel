@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row, Button, Spinner, ListGroup, Modal } from 'react-bootstrap';
+import { Card, Col, Container, Row, Button, ListGroup, Modal } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 
 const MyBookings = () => {

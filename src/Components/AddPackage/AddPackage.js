@@ -22,10 +22,10 @@ const AddPackage = () => {
         axios.post('https://intense-castle-18583.herokuapp.com/packageADD', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    // alert("Package added successfully");
+                    reset();
                     ShowPackageAddModal()
-                    // history.push('/home')
-                    // reset();
+
+
                 }
 
             })
