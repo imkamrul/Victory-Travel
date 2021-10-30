@@ -1,9 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Modal, Row, Button } from 'react-bootstrap';
 
 const Admins = () => {
     const [allAdmins, setAlladmins] = useState([]);
+    const [deleteUserModal, setDeleteUserModal] = useState(false);
+
+    const closeDeleteModal = () => setDeleteUserModal(false);
+    const showDeleteModal = () => setDeleteUserModal(true);
 
     useEffect(() => {
         axios.get('https://intense-castle-18583.herokuapp.com/allUsers')
@@ -14,19 +18,18 @@ const Admins = () => {
     }, [])
 
     const deleteAdmin = (id) => {
+        closeDeleteModal()
+        axios.delete(`https://intense-castle-18583.herokuapp.com/deleteUser/${id}`)
+            .then(res => {
+                if (res.data.deletedCount) {
 
+                    alert("deleted successful");
+                    const updateAdminList = allAdmins.filter(booking => booking._id !== id);
+                    setAlladmins(updateAdminList)
 
-        const deleteSure = window.confirm("are you sure ")
-        if (deleteSure) {
-            axios.delete(`https://intense-castle-18583.herokuapp.com/deleteUser/${id}`)
-                .then(res => {
-                    if (res.data.deletedCount) {
-                        alert("deleted successful");
-                        const updateAdminList = allAdmins.filter(booking => booking._id !== id);
-                        setAlladmins(updateAdminList)
-                    }
-                })
-        }
+                }
+            })
+
     }
     return (
         <div>
@@ -48,13 +51,33 @@ const Admins = () => {
                                 <Col md={5} xs={4}><h4 className="mb-0 ms-3">{admin.email}</h4></Col>
 
 
-                                <Col md={3} xs={4}><h4 className="mb-0 text-center"><i className="fas fa-trash text-danger " onClick={() => { deleteAdmin(admin._id) }} ></i></h4></Col>
+                                <Col md={3} xs={4}><h4 className="mb-0 text-center"><i className="fas fa-trash text-danger " onClick={showDeleteModal}  ></i></h4></Col>
+                                <Modal
+                                    show={deleteUserModal}
+                                    onHide={closeDeleteModal}
+                                    backdrop="static"
+                                    keyboard={false}
+                                >
+                                    <Modal.Header closeButton>
+                                        <Modal.Title className="text-warning">Warning</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        Deleting this user. Are you sure?
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={closeDeleteModal}>
+                                            Close
+                                        </Button>
+                                        <Button variant="danger" onClick={() => { deleteAdmin(admin._id) }}>Delete</Button>
+                                    </Modal.Footer>
+                                </Modal>
 
                             </Row>)
 
                         }
                     </Col>
                 </Row>
+
 
             </Container>
 

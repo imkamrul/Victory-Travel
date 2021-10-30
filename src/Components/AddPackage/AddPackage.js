@@ -1,18 +1,31 @@
 import axios from 'axios';
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Container, Modal, Row, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 import './AddPackage.css'
 
 const AddPackage = () => {
+    const { user } = useAuth();
+    const [EventModalsShow, setEventModalsShow] = useState(false);
+    let history = useHistory();
+
+    const closePackageAddModal = () => setEventModalsShow(false);
+    const ShowPackageAddModal = () => setEventModalsShow(true);
     const { register, handleSubmit, reset } = useForm();
+    const handleGotoHome = () => {
+        history.push('/home')
+    }
     const onSubmit = data => {
 
         axios.post('https://intense-castle-18583.herokuapp.com/packageADD', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert("Package added successfully");
-                    reset();
+                    // alert("Package added successfully");
+                    ShowPackageAddModal()
+                    // history.push('/home')
+                    // reset();
                 }
 
             })
@@ -36,11 +49,11 @@ const AddPackage = () => {
 
 
 
-                                    <input placeholder="Events Name" type="text" {...register("event")} />
-                                    <input placeholder="Price" type="number"  {...register("price")} />
-                                    <input placeholder="IMG Url Only" type="text" {...register("img")} />
-                                    <input placeholder="Duration" type="number" {...register("duration")} />
-                                    <textarea placeholder="Description" type="text" {...register("description")} />
+                                    <input placeholder="Events Name" type="text" {...register("event", { required: true })} />
+                                    <input placeholder="Price" type="number"  {...register("price", { required: true })} />
+                                    <input placeholder="IMG Url Only" type="text" {...register("img", { required: true })} />
+                                    <input placeholder="Days" type="number" {...register("duration", { required: true })} />
+                                    <textarea placeholder="Description" type="text" {...register("description", { required: true })} />
 
 
 
@@ -51,6 +64,26 @@ const AddPackage = () => {
                                 </form>
 
                             </Col>
+                            <Modal
+                                show={EventModalsShow}
+                                onHide={closePackageAddModal}
+                                backdrop="static"
+                                keyboard={false}
+                            >
+                                <Modal.Header closeButton>
+                                    <Modal.Title>{user.displayName}</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    Package added successfully.
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={closePackageAddModal}>
+                                        Close
+                                    </Button>
+                                    <Button variant="primary" onClick={handleGotoHome}>Go to home </Button>
+
+                                </Modal.Footer>
+                            </Modal>
                         </Row>
 
                     </Col>
