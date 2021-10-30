@@ -85,7 +85,7 @@ const ManageAllBooking = () => {
                         <Col md={3} ><h5 className="mb-0 mt-2">{booking.email}</h5></Col>
                         <Col md={2} ><h5 className="mb-0 mt-2">{booking.event}</h5></Col>
                         <Col md={2} ><h5 className="mb-0 mt-2">{booking.status} </h5></Col>
-                        <Col md={2} ><h5 className="mb-0 text-center"><Button variant="outline-dark" className=" ms-3" onClick={() => handleUpate(booking)}>Update</Button></h5></Col>
+                        <Col md={2} ><h5 className="mb-0 text-center"><Button variant="outline-dark" className=" ms-3" onClick={() => handleUpate(booking)}>Action</Button></h5></Col>
 
                     </Row>)}
                 <Row xs={1} md={3} className="g-4">
