@@ -44,12 +44,13 @@ const ManageAllBooking = () => {
     const deleteBooking = () => {
         const id = bookingUpdate._id;
 
-
+        closeUpdateModal()
         const sure = window.confirm("are you sure to delete this ?");
+
         if (sure) {
             axios.delete(`https://intense-castle-18583.herokuapp.com/bookingDelete/${id}`)
                 .then(res => {
-                    closeUpdateModal()
+
                     if (res.data.deletedCount) {
                         alert("deleted successful");
                         const updateBooking = allBookings.filter(booking => booking._id !== id);
