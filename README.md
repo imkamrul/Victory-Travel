@@ -8,17 +8,6 @@ This project was bootstrapped with [𝐕𝐢𝐜𝐭𝐨𝐫𝐲 𝐓𝐫𝐚�
 Open [https://victory-travel-k17h02.web.app/](https://victory-travel-k17h02.web.app/) to view it in the browser.
 
 
-### `Client site github code`
-
-
-See the section about [Client Site guthub code](https://github.com/programming-hero-web-course1/tourism-or-delivery-website-client-side-k17h02) for more information.
-
-### `Server site github code`
-See the section about [Client Site guthub code](https://github.com/programming-hero-web-course1/tourism-or-delivery-website-server-side-k17h02) for more information.
-
-
-
-
 ### `Website Summary`
 This is a travel agency website. All their package news can be found through the web site. You can cancel it again after selecting a package if you want. You cannot change your name, email, location, price when booking. Admin can see how many people have logged in to this website. Admin can change their package status from Manage Booking if they want.
 
