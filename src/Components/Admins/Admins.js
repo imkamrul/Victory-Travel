@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Modal, Row, Button } from "react-bootstrap";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 
 const Admins = () => {
   const [allAdmins, setAlladmins] = useState([]);
@@ -10,26 +10,22 @@ const Admins = () => {
   const showDeleteModal = () => setDeleteUserModal(true);
 
   useEffect(() => {
-    axios
-      .get("https://victory-travel-server.vercel.app/allUsers")
-      .then((res) => {
-        setAlladmins(res.data);
-      });
+    axios.get("https://www.api.kamrul.pro/allUsers").then((res) => {
+      setAlladmins(res.data);
+    });
   }, []);
 
   const deleteAdmin = (id) => {
     closeDeleteModal();
-    axios
-      .delete(`https://victory-travel-server.vercel.app/deleteUser/${id}`)
-      .then((res) => {
-        if (res.data.deletedCount) {
-          alert("deleted successful");
-          const updateAdminList = allAdmins.filter(
-            (booking) => booking._id !== id
-          );
-          setAlladmins(updateAdminList);
-        }
-      });
+    axios.delete(`https://www.api.kamrul.pro/deleteUser/${id}`).then((res) => {
+      if (res.data.deletedCount) {
+        alert("deleted successful");
+        const updateAdminList = allAdmins.filter(
+          (booking) => booking._id !== id
+        );
+        setAlladmins(updateAdminList);
+      }
+    });
   };
   return (
     <div>

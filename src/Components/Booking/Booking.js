@@ -1,10 +1,10 @@
 import axios from "axios";
-import { Col, Container, Image, Row } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import "./Booking.css";
+import { useHistory, useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import "./Booking.css";
 
 const Booking = () => {
   const { id } = useParams();
@@ -19,7 +19,7 @@ const Booking = () => {
     console.log(data);
 
     axios
-      .post("https://victory-travel-server.vercel.app/packageRegister", data)
+      .post("https://www.api.kamrul.pro/packageRegister", data)
       .then((res) => {
         if (res.data.insertedId) {
           history.push("/myBookings");
@@ -28,11 +28,9 @@ const Booking = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(`https://victory-travel-server.vercel.app/selectedPack/${id}`)
-      .then((res) => {
-        setSelectedPack(res.data);
-      });
+    axios.get(`https://www.api.kamrul.pro/selectedPack/${id}`).then((res) => {
+      setSelectedPack(res.data);
+    });
   }, [id]);
 
   return (

@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
+  Button,
   Card,
   Col,
   Container,
-  Row,
-  Button,
   ListGroup,
   Modal,
+  Row,
 } from "react-bootstrap";
 import useAuth from "../../hooks/useAuth";
 
@@ -22,7 +22,7 @@ const MyBookings = () => {
   const deleteMyBooking = (id) => {
     closePackageModal();
     axios
-      .delete(`https://victory-travel-server.vercel.app/bookingDelete/${id}`)
+      .delete(`https://www.api.kamrul.pro/bookingDelete/${id}`)
       .then((res) => {
         if (res.data.deletedCount) {
           alert("deleted successful");
@@ -35,9 +35,7 @@ const MyBookings = () => {
   };
   useEffect(() => {
     axios
-      .get(
-        `https://victory-travel-server.vercel.app/myBookings?search=${email}`
-      )
+      .get(`https://www.api.kamrul.pro/myBookings?search=${email}`)
       .then((res) => {
         setMyBooking(res.data);
       });

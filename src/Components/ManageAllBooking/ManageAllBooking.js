@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Button, Modal } from "react-bootstrap";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import "./ManageAllBooking.css";
-import { useForm } from "react-hook-form";
 
 const ManageAllBooking = () => {
   const { user } = useAuth();
@@ -23,20 +23,15 @@ const ManageAllBooking = () => {
     const id = bookingUpdate._id;
 
     axios
-      .put(
-        `https://victory-travel-server.vercel.app/bookingStatusUpdate/${id}`,
-        data
-      )
+      .put(`https://www.api.kamrul.pro/bookingStatusUpdate/${id}`, data)
       // axios.put(`http://localhost:5000/bookingStatusUpdate/${id}`, data)
       .then((res) => {
         if (res.data.modifiedCount) {
           closeUpdateModal();
-          axios
-            .get("https://victory-travel-server.vercel.app/allBooking")
-            .then((res) => {
-              setAllbooking(res.data);
-              alert("Status  updated successful");
-            });
+          axios.get("https://www.api.kamrul.pro/allBooking").then((res) => {
+            setAllbooking(res.data);
+            alert("Status  updated successful");
+          });
         }
       });
   };
@@ -49,7 +44,7 @@ const ManageAllBooking = () => {
 
     if (sure) {
       axios
-        .delete(`https://victory-travel-server.vercel.app/bookingDelete/${id}`)
+        .delete(`https://www.api.kamrul.pro/bookingDelete/${id}`)
         .then((res) => {
           if (res.data.deletedCount) {
             alert("deleted successful");
@@ -62,11 +57,9 @@ const ManageAllBooking = () => {
     }
   };
   useEffect(() => {
-    axios
-      .get("https://victory-travel-server.vercel.app/allBooking")
-      .then((res) => {
-        setAllbooking(res.data);
-      });
+    axios.get("https://www.api.kamrul.pro/allBooking").then((res) => {
+      setAllbooking(res.data);
+    });
   }, []);
   return (
     <div>

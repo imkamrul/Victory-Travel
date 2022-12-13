@@ -1,19 +1,19 @@
+import axios from "axios";
 import React, { useState } from "react";
 import {
+  Button,
   Col,
   Container,
-  Row,
+  FormControl,
   Image,
   InputGroup,
-  FormControl,
-  Button,
+  Row,
 } from "react-bootstrap";
-import login from "../../img/login.jpg";
-import "./Login.css";
-import googleLogo from "../../img/google.png";
 import { useHistory, useLocation } from "react-router";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
+import googleLogo from "../../img/google.png";
+import login from "../../img/login.jpg";
+import "./Login.css";
 const LogIn = () => {
   const location = useLocation();
   const redirect_uri = location.state?.from || "/home";
@@ -44,10 +44,7 @@ const LogIn = () => {
           verifyEmail().then((result) => {
             const newUser = { name, email };
             axios
-              .post(
-                "https://victory-travel-server.vercel.app/registerUser",
-                newUser
-              )
+              .post("https://www.api.kamrul.pro/registerUser", newUser)
               .then((res) => {
                 history.push(redirect_uri);
                 window.location.reload();
@@ -65,7 +62,7 @@ const LogIn = () => {
           email: result.user.email,
         };
         axios
-          .post("https://victory-travel-server.vercel.app/AddUser", newUser)
+          .post("https://www.api.kamrul.pro/AddUser", newUser)
           .then((res) => {
             history.push(redirect_uri);
           });

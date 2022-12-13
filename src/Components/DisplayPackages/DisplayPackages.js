@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
-  Container,
-  Row,
-  Col,
   Button,
   Card,
-  Spinner,
+  Col,
+  Container,
   ListGroup,
+  Row,
+  Spinner,
 } from "react-bootstrap";
 import { useHistory } from "react-router";
 import "./DisplayPackages.css";
@@ -19,11 +19,9 @@ const DisplayPackages = () => {
     history.push(`/booking/${id}`);
   };
   useEffect(() => {
-    axios
-      .get("https://victory-travel-server.vercel.app/packages")
-      .then((res) => {
-        setPackages(res.data);
-      });
+    axios.get("https://www.api.kamrul.pro/packages").then((res) => {
+      setPackages(res.data);
+    });
   }, []);
 
   return (

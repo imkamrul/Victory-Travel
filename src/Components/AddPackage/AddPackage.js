@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Col, Container, Modal, Row, Button } from "react-bootstrap";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import useAuth from "../../hooks/useAuth";
@@ -18,14 +18,12 @@ const AddPackage = () => {
     history.push("/home");
   };
   const onSubmit = (data) => {
-    axios
-      .post("https://victory-travel-server.vercel.app/packageADD", data)
-      .then((res) => {
-        if (res.data.insertedId) {
-          reset();
-          ShowPackageAddModal();
-        }
-      });
+    axios.post("https://www.api.kamrul.pro/packageADD", data).then((res) => {
+      if (res.data.insertedId) {
+        reset();
+        ShowPackageAddModal();
+      }
+    });
   };
   return (
     <div>
